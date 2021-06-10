@@ -10,6 +10,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Success");
+})
+
 app.get("/test", (req, res) => {
   db.addNewIngredient("Tomato", 3, res);
 });
