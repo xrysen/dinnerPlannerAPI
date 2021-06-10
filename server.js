@@ -4,6 +4,7 @@ require("dotenv").config();
 const cors = require("cors");
 const db = require("./db");
 const PORT = process.env.PORT || 8080;
+const HOST = '0.0.0.0';
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -106,6 +107,6 @@ app.get("/food_types", (req, res) => {
   db.getFoodTypes().then((result) => res.status(200).send(result.rows));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, HOST, () => {
   console.log("Server started listening on port " + PORT);
 });
