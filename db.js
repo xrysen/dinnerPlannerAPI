@@ -6,6 +6,9 @@ const connectionString = process.env.HEROKU_POSTGRESQL_OLIVE_URL;
 
 const pool = new Pool({
   connectionString: connectionString,
+  ssl: {
+    rejectUnauthorized: false;
+  }
 });
 
 const getUserByEmail = (email) => {
