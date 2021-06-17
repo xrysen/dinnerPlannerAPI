@@ -93,10 +93,8 @@ app.post("/recipes", (req, res) => {
             item.ingredient,
             item.measurement
           );
-          for (const item of req.body.directions) {
-            db.updateDirections(res.rows[0].id, item);
-          }
         }
+        req.body.directions.forEach(element => db.updateDirections(res.rows[0].id, element));
       }
     });
   });
